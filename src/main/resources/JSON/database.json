@@ -1,0 +1,14 @@
+[
+    {
+        "name": "ABC tavla",
+        "price": 500,
+        "description": "Alfabetstavla i tyg från Oscar & Ellen.",
+        "img": "/webapp/img/products/ABC_tavla.jpg"
+    },
+    {
+        "name": "Världstavla",
+        "price": 800,
+        "description": "Världstavla i tyg från Oscar & Ellen.",
+        "img": "/webapp/img/products/varldstavla.jpg"
+    }
+]
