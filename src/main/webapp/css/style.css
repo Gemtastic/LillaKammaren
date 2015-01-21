@@ -65,7 +65,7 @@ body{
 			border-radius: 10px 10px 0px 0px;
 		}
 
-		.navMenu a:hover, .navMenu a.current:hover, .navMenu a.contact:hover, .navMenu a.cart:hover{
+		.navMenu a:hover, .navMenu a.current:hover, .navMenu a.contact:hover, .navMenu a.cart:hover, .navMenu a.home:hover{
 			background-color: #efefef;
 			color: #40371c;
 		}
