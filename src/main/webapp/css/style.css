@@ -11,6 +11,18 @@ body{
 	height: 100%;
 }
 
+p.pform {
+    margin: 2px;
+}
+.textarea{
+    max-width: 30em;
+}
+.required{
+    font-size: 0.8em;
+    color: red;
+    font-style: italic;
+}
+
 .wrapper {
 	position: absolute;
 	min-width: 54em;

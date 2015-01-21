@@ -26,6 +26,7 @@ public class ThymeleafConfig {
 		resolver.setTemplateMode("HTML5");
 		resolver.setOrder(1);
                 resolver.setCacheable(false);
+                resolver.setCharacterEncoding("UTF-8");
 		return resolver;
     }
     

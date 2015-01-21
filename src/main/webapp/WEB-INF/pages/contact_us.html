@@ -68,10 +68,20 @@
 
                         <div class="content">
                             <div>
-                                <h2>Welcome to the site!</h2>
-                                <p>If you can read this something has gone awry in 
-                                the back-end. The webmaster is running the minions
-                                as fast as they can to fix this.</p>
+                                <h2>Contact us!</h2>
+                                <form>
+                                    <p class="pform">Name: <span style="color:red">*</span></p>
+                                    <input type="text" name="name" required="required" /><br/>
+                                    <p class="pform">Email: <span style="color:red">*</span></p>
+                                    <input type="email" name="email" required="required" /><br/>
+                                    <p class="pform">Order number:</p>
+                                    <input type="email" name="orderno" /><br/>
+                                    <p class="pform">Message: <span style="color:red">*</span></p>
+                                    <textarea name="message" class="textarea" cols="40" rows="4" required="required" /><br/>
+                                    <p class="pform"><span class="required">* Fields are required</span></p>
+                                    <input type="submit" value="Skicka"/>
+                                </form>
+                                <p class="success"></p>
                             </div>
                         </div>
 
