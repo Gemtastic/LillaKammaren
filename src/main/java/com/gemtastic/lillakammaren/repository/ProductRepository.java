@@ -10,6 +10,7 @@ import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 
@@ -17,21 +18,22 @@ import org.springframework.web.bind.annotation.ModelAttribute;
  *
  * @author Gemtastic
  */
+@Repository
 public class ProductRepository {
     
-    public static ProductRepository instance;
-    
-    public static ProductRepository getInstance() throws IOException{
-        if(instance == null){
-            synchronized(ProductRepository.class){
-                if(instance == null){
-                    instance = new ProductRepository();
-                }
-            }
-        }
-        
-        return instance;
-    }
+//    public static ProductRepository instance;
+//    
+//    public static ProductRepository getInstance() throws IOException{
+//        if(instance == null){
+//            synchronized(ProductRepository.class){
+//                if(instance == null){
+//                    instance = new ProductRepository();
+//                }
+//            }
+//        }
+//        
+//        return instance;
+//    }
     
     private List<Product> products;
     private final List<String> categories;
@@ -42,7 +44,7 @@ public class ProductRepository {
         
         ObjectMapper mapper = new ObjectMapper();
         TypeReference<List<Product>> typeRef = new TypeReference<List<Product>>(){};
-        InputStream in = ProductRepository.class.getResourceAsStream("/database.json");
+        InputStream in = ProductRepository.class.getResourceAsStream("/JSON/database.json");
         if (in == null) {
             throw new IOException("Resource not found");
         }
@@ -50,7 +52,7 @@ public class ProductRepository {
             products = mapper.readValue(reader, typeRef);
         }
         for(Product p : products){
-            products.add(p);
+            
             if(!categories.contains(p.getCategory())){
                 categories.add(p.getCategory());
             }

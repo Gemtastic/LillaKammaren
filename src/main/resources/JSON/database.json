@@ -6,7 +6,7 @@
         "img": "/webapp/img/products/ABC_tavla.jpg",
         "category": "Leksaker",
         "id": 1,
-        "Sale": false
+        "sale": false
     },
     {
         "name": "Världstavla",
@@ -15,7 +15,7 @@
         "img": "/webapp/img/products/varldstavla.jpg",
         "category": "Leksaker",
         "id": 2,
-        "Sale": false
+        "sale": false
     },
     {
         "name": "Cover Me Amningscape",
@@ -24,7 +24,7 @@
         "img": "/webapp/img/products/CoverMe_Amningscape_svart-rod.jpg",
         "category": "Baby",
         "id": 3,
-        "Sale": false
+        "sale": false
     },
     {
         "name": "Linnea böcker",
@@ -33,7 +33,7 @@
         "img": "/webapp/img/products/CoverMe_Amningscape_svart-rod.jpg",
         "category": "Böcker",
         "id": 4,
-        "Sale": false
+        "sale": false
     },
     {
         "name": "Piggtittare",
@@ -42,6 +42,6 @@
         "img": "/webapp/img/products/piggtittare.jpg",
         "category": "Övrigt",
         "id": 5,
-        "Sale": true
+        "sale": true
     }
 ]

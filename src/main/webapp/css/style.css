@@ -284,27 +284,12 @@ p.pform {
 		}
 		
 		
-		.offer {
+		.productMenuContent {
 			margin: 3em 0 0 1em;
 			font-family: Georgia;
 			font-weight: bold;
 			font-family: Charlemagne Std;
 			font-size: 0.8em;
-		}
-		
-		#offerBox {
-			margin: 0.5em 0 0 0.7em;
-			padding: 0;
-			width: 7em;
-			height: 8em;
-			background-image: url(../img/products/natursutten.jpg);
-			background-size: 7em auto;
-			background-repeat: no-repeat;
-			outline: 0;
-		}
-		
-		.productMenu a#offerBox:hover {
-			margin-left: 0.7em;
 		}
 		
 		
