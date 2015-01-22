@@ -58,7 +58,7 @@
                         <div class="productMenu">
                             <p class="productMenuContent">Products</p>
                             <ul>
-                                <li th:each="category : ${categories}" th:id="${category}"><a href="store.html" th:href="@{store}" th:text="${category}"></a></li>
+                                <li th:each="category : ${categories}" th:id="${category}"><a href="store.html" th:href="@{store(category)${category})}" th:text="${category}"></a></li>
                             </ul>
                         </div>
 
