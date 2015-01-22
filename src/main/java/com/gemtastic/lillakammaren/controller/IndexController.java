@@ -22,6 +22,7 @@ public class IndexController {
     public ModelAndView index() {
         ModelAndView model = new ModelAndView();
         model.setViewName("index");
+        
         return model;
     }
 }

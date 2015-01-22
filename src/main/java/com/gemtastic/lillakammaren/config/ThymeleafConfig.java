@@ -27,6 +27,7 @@ public class ThymeleafConfig {
 		resolver.setOrder(1);
                 resolver.setCacheable(false);
                 resolver.setCharacterEncoding("UTF-8");
+                
 		return resolver;
     }
     
@@ -37,10 +38,10 @@ public class ThymeleafConfig {
 		return engine;
 	}
 
-	@Bean
-	public ThymeleafViewResolver thymeleafViewResolver() {
-		ThymeleafViewResolver resolver = new ThymeleafViewResolver();
-		resolver.setTemplateEngine(templateEngine());
-		return resolver;
+    @Bean
+    public ThymeleafViewResolver thymeleafViewResolver() {
+        ThymeleafViewResolver resolver = new ThymeleafViewResolver();
+        resolver.setTemplateEngine(templateEngine());
+        return resolver;
     }
 }

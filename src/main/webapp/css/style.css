@@ -16,6 +16,7 @@ p.pform {
 }
 .textarea{
     max-width: 30em;
+    max-height: 15em;
 }
 .required{
     font-size: 0.8em;

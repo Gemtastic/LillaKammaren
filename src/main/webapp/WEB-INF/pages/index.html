@@ -58,7 +58,7 @@
                         <div class="productMenu">
                             <p class="offer">Products</p>
                             <ul>
-                                
+                                <li class="" th:each="category : ${categories}" th:text="category"><a></a></li>
                             </ul>
 
                             <p class="offer">Offers</p>
@@ -73,6 +73,11 @@
                                 the back-end. The webmaster is running the minions
                                 as fast as they can to fix this.</p>
                             </div>
+                            <table>
+                                <tr th:each="product : ${products}">
+                                    <td th:text="${product.name}"></td>
+                                </tr>
+                            </table>
                         </div>
 
 

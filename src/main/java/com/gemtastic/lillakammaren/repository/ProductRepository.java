@@ -10,6 +10,7 @@ import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 
 /**
@@ -33,9 +34,11 @@ public class ProductRepository {
     }
     
     private List<Product> products;
+    private final List<String> categories;
     
     private ProductRepository() throws IOException{
-        this.products = new ArrayList();
+        this.products = new ArrayList<>();
+        this.categories = new ArrayList<>();
         
         ObjectMapper mapper = new ObjectMapper();
         TypeReference<List<Product>> typeRef = new TypeReference<List<Product>>(){};
@@ -48,8 +51,12 @@ public class ProductRepository {
         }
         for(Product p : products){
             products.add(p);
+            if(!categories.contains(p.getCategory())){
+                categories.add(p.getCategory());
+            }
         }
     }
+    
     
     public List<Product> getAllProducts(){
         return products;
@@ -62,6 +69,11 @@ public class ProductRepository {
             }
         }
         throw new IllegalArgumentException("Specified Product ID does not exist.");
+    }
+    
+    @ModelAttribute("categories")
+    public List<String> getAllCategories(){
+        return categories;
     }
     
 }

@@ -3,12 +3,45 @@
         "name": "ABC tavla",
         "price": 500,
         "description": "Alfabetstavla i tyg från Oscar & Ellen.",
-        "img": "/webapp/img/products/ABC_tavla.jpg"
+        "img": "/webapp/img/products/ABC_tavla.jpg",
+        "category": "Leksaker",
+        "id": 1,
+        "Sale": false
     },
     {
         "name": "Världstavla",
         "price": 800,
         "description": "Världstavla i tyg från Oscar & Ellen.",
-        "img": "/webapp/img/products/varldstavla.jpg"
+        "img": "/webapp/img/products/varldstavla.jpg",
+        "category": "Leksaker",
+        "id": 2,
+        "Sale": false
+    },
+    {
+        "name": "Cover Me Amningscape",
+        "price": 200,
+        "description": "En amningscape för att få amningen lite mer privat",
+        "img": "/webapp/img/products/CoverMe_Amningscape_svart-rod.jpg",
+        "category": "Baby",
+        "id": 3,
+        "Sale": false
+    },
+    {
+        "name": "Linnea böcker",
+        "price": 100,
+        "description": "Klassikern Linnea i målarens trädgård eller Linneas årsbok",
+        "img": "/webapp/img/products/CoverMe_Amningscape_svart-rod.jpg",
+        "category": "Böcker",
+        "id": 4,
+        "Sale": false
+    },
+    {
+        "name": "Piggtittare",
+        "price": 500,
+        "description": "En vacker piggtittare i vitt.",
+        "img": "/webapp/img/products/piggtittare.jpg",
+        "category": "Övrigt",
+        "id": 5,
+        "Sale": true
     }
 ]
