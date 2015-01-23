@@ -306,8 +306,15 @@ p.pform {
 
 .box {
 	width: 6em;
-	height: 6em;
-	background-color: #d4cbab;
+/*	height: 6em;*/
+	
+}
+
+.description{
+    margin: 0;
+    padding: 0;
+    width: 7em;
+    font-size: 0.8em;
 }
 
 

@@ -21,19 +21,19 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @Repository
 public class ProductRepository {
     
-//    public static ProductRepository instance;
-//    
-//    public static ProductRepository getInstance() throws IOException{
-//        if(instance == null){
-//            synchronized(ProductRepository.class){
-//                if(instance == null){
-//                    instance = new ProductRepository();
-//                }
-//            }
-//        }
-//        
-//        return instance;
-//    }
+    public static ProductRepository instance;
+    
+    public static ProductRepository getInstance() throws IOException{
+        if(instance == null){
+            synchronized(ProductRepository.class){
+                if(instance == null){
+                    instance = new ProductRepository();
+                }
+            }
+        }
+        
+        return instance;
+    }
     
     private List<Product> products;
     private final List<String> categories;
@@ -59,7 +59,7 @@ public class ProductRepository {
         }
     }
     
-    
+    @ModelAttribute("products")
     public List<Product> getAllProducts(){
         return products;
     }
@@ -78,4 +78,14 @@ public class ProductRepository {
         return categories;
     }
     
+    @ModelAttribute("categoryitems")
+    public List<Product> getAllProductsByCategory(String category){
+        List<Product> productsByCategory = new ArrayList();
+        for(Product p : products){
+            if(p.getCategory().equals(category)){
+                productsByCategory.add(p);
+            }
+        }
+        return productsByCategory;
+    }
 }
