@@ -30,6 +30,7 @@ public class CartController {
         model.addObject("categories", repository.getAllCategories());
         model.addObject("cartcontent", cart.getCartContent());
         model.addObject("cartsize", cart.getCartSize());
+        model.addObject("carttotal", cart.getCartTotal());
         return model;
     }
     
@@ -37,21 +38,18 @@ public class CartController {
     public ModelAndView addToCart(@RequestParam("productId") String productId) throws IOException{
         ModelAndView model = new ModelAndView();
         this.repository = ProductRepository.getInstance();
-        System.out.println("Input here: " + productId);
         if (productId == null) {
             System.out.println("Input is null");
         }else{
             try {
                 int id = Integer.parseInt(productId);
-                System.out.println(id);
                 Product product = repository.getProductByID(id);
-                System.out.println("Selected product here: " + product.getName());
                 cart.addItem(product);
-                System.out.println("Cart here: " + cart.getCartContent());
             } catch (NumberFormatException e) {
                 System.out.println("Oops! Something went wrong:" + e);
             }
         }
+        
         return model;
     }
 }

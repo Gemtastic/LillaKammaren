@@ -304,7 +304,7 @@ p.pform {
 	vertical-align: top;
 }
 
-.buybutton {
+.shopbutton {
     text-align: center;
     width: 3em;
     display: block;
@@ -314,8 +314,18 @@ p.pform {
     text-decoration: none;
 }
 
-.buybutton:hover{
+.shopbutton:hover, .removebutton:hover{
     background-color: #40371c;
+}
+
+.removebutton {
+    text-align: center;
+    width: 4em;
+    display: block;
+    background-color: #c8a120;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
 }
 
 .box {

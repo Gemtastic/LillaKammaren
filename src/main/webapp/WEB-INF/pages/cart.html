@@ -71,13 +71,16 @@
                                         <th th:text="#{cart.product}">Produkt</th>
                                         <th th:text="#{cart.amount}">Antal</th>
                                         <th th:text="#{cart.price}">Pris</th>
+                                        <th></th>
                                     </tr>
                                     <tr th:each="instance : ${cartcontent}">
                                         <td th:text="${instance.key}">.</td>
                                         <td th:text="${instance.value}">.</td>
                                         <td th:text="${instance.key.price}">.</td>
+                                        <td><a href="#" class="removebutton" th:text="#{cart.remove}">.</a></td>
                                     </tr>
                                 </table>
+                                <p th:text="#{cart.total} + ${carttotal} + ' ' + #{cart.currency}">Your total amounts to: 0;</p>
                                 
                             </div>
                         </div>

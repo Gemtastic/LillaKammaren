@@ -14,6 +14,7 @@ public class Cart {
     
     private static Cart instance;
     private int size = 0;
+    private int total = 0;
     
     public static Cart getInstance() {
         if (instance == null) {
@@ -41,6 +42,7 @@ public class Cart {
             cart.put(p, 1);
         }
         size = size + 1;
+        total =  total + p.getPrice();
     }
     
     public void removeProduct(Product p, int amount){
@@ -51,22 +53,20 @@ public class Cart {
     
     public void emptyCart(){
         cart.clear();
+        size = 0;
     }
     
-    @ModelAttribute("cartcontent")
+
     public Map<Product, Integer> getCartContent(){
         return cart;
     }
     
-    @ModelAttribute("cartsize")
+
     public int getCartSize(){
-//        if(cart.isEmpty()){
-//            size = 0;
-//        }else{
-//            for(Map.Entry<Product, Integer> entry : cart.entrySet()){
-//                size = size + entry.getValue();
-//            }
-//        }
         return size;
+    }
+    
+    public int getCartTotal(){
+        return total;
     }
 }
