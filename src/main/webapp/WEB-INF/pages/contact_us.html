@@ -22,7 +22,7 @@
                                     <a href="contact_us.html" th:href="@{/contact}" th:text="#{site.contact}" class="currentPage">Contact</a>
                                 </li>
                                 <li>
-                                    <a href="#" th:href="@{/cart}" class="cart" th:text="#{site.cart}">Cart</a>
+                                    <a href="#" th:href="@{/cart}" class="cart" th:text="#{site.cart} + ' ('+ ${cartsize} +')'">Cart</a>
                                 </li>
                             </ul>
                         </div>

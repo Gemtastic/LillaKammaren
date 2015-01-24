@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 /**
  *
@@ -51,16 +52,13 @@ public class Cart {
         cart.clear();
     }
     
-    public List<CartContent> getCartContent(){
-        ArrayList<CartContent> basket = new ArrayList<>();
-        for(Product p : cart.keySet()){
-            basket.add(new CartContent(p, cart.get(p)));
-        }
-        return basket;
+    @ModelAttribute("cartcontent")
+    public Map<Product, Integer> getCartContent(){
+        return cart;
     }
     
+    @ModelAttribute("cartsize")
     public int getCartSize(){
-        
         if(cart.isEmpty()){
             size = 0;
         }else{

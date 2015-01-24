@@ -5,6 +5,7 @@
  */
 package com.gemtastic.lillakammaren.controller;
 
+import com.gemtastic.lillakammaren.model.Cart;
 import com.gemtastic.lillakammaren.repository.ProductRepository;
 import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class ContactController {
     
-
+    private final Cart cart = Cart.getInstance();
+    @Autowired
     private ProductRepository repository;
     
     @RequestMapping(value = "contact", method = RequestMethod.GET)
@@ -29,6 +31,7 @@ public class ContactController {
         ModelAndView model = new ModelAndView();
         model.setViewName("contact_us");
         model.addObject("categories", repository.getAllCategories());
+        model.addObject("cartsize", cart.getCartSize());
         return model;
     }
 }

@@ -22,7 +22,7 @@
                                     <a href="contact_us.html" th:href="@{/contact}" th:text="#{site.contact}" class="contact">Contact</a>
                                 </li>
                                 <li>
-                                    <a href="#" th:href="@{/cart}" class="currentPage" th:text="#{site.cart}">Cart</a>
+                                    <a href="#" th:href="@{/cart}" class="currentPage" th:text="#{site.cart} + ' ('+ ${cartsize} +')'">Cart</a>
                                 </li>
                             </ul>
                         </div>
@@ -65,10 +65,20 @@
 
                         <div class="content">
                             <div>
-                                <h2 th:text="#{home.welcome}">Store items!</h2>
-                                <p th:text="#{home.p1}">If you can read this something has gone awry in 
-                                the back-end. The webmaster is running the minions
-                                as fast as they can to fix this.</p>
+                                <h2 th:text="#{cart.view}">Store items!</h2>
+                                <table border="1px">
+                                    <tr>
+                                        <th th:text="#{cart.product}">Produkt</th>
+                                        <th th:text="#{cart.amount}">Antal</th>
+                                        <th th:text="#{cart.price}">Pris</th>
+                                    </tr>
+                                    <tr th:each="instance : ${cartcontent}">
+                                        <td th:text="${instance.key}">.</td>
+                                        <td th:text="${instance.value}">.</td>
+                                        <td th:text="${instance.key.price}">.</td>
+                                    </tr>
+                                </table>
+                                
                             </div>
                         </div>
 

@@ -5,6 +5,8 @@
         <title th:text="#{site.name}">Company Name</title>
         <link href="css/style.css" th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
         
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js}"></script>
+        <script src="../js/store.js" th:src="@{/js/store.js}"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
 
@@ -22,7 +24,7 @@
                                     <a href="contact_us.html" th:href="@{/contact}" th:text="#{site.contact}" class="contact">Contact</a>
                                 </li>
                                 <li>
-                                    <a href="#" th:href="@{/cart}" class="cart" th:text="#{site.cart}">Cart</a>
+                                    <a href="#" th:href="@{/cart}" class="cart" th:text="#{site.cart} + ' ('+ ${cartsize} +')'">Cart</a>
                                 </li>
                             </ul>
                         </div>
@@ -72,7 +74,15 @@
                                 <a href="#" th:id="${product.id}"><img src="" th:src="@{${product.img}}" class="box"/></a><br/>
 				<strong th:text="${product.name}">Produktnamn</strong><br/>
                                 <div class="description" th:text="${product.description}">Beskrivning</div>
-				<em th:text="${product.price}+' kr'">Pris</em>
+                                <em th:text="${product.price}+' kr'">Pris</em><br/>
+                                <input type="button" class="buybutton" th:onclick="'javascript:getProductId(\'' + ${product.id} + '\');'" th:value="#{cart.buy}" />
+                                <script th:inline="javascript">
+                                /*<![CDATA[*/
+                                    var productname = /*[[${product.name}]]*/ 'buybutton';
+                                /*]]>*/
+                                </script>
+                                
+                                
                             </div>
                         </div>
 

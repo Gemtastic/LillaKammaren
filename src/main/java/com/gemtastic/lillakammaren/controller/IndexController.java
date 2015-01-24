@@ -5,6 +5,7 @@
  */
 package com.gemtastic.lillakammaren.controller;
 
+import com.gemtastic.lillakammaren.model.Cart;
 import com.gemtastic.lillakammaren.repository.ProductRepository;
 import java.io.IOException;
 import java.util.List;
@@ -25,12 +26,15 @@ public class IndexController {
     
     @Autowired
     private ProductRepository repository;
+    private final Cart cart = Cart.getInstance();
     
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView index() {
+    public ModelAndView index() throws IOException {
+        this.repository = ProductRepository.getInstance();
         ModelAndView model = new ModelAndView();
         model.setViewName("index");
         model.addObject("categories", repository.getAllCategories());
+        model.addObject("cartsize", cart.getCartSize());
         return model;
     }
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.gemtastic.lillakammaren.config;
 
 import javax.servlet.ServletContext;
@@ -14,7 +9,9 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.servlet.DispatcherServlet;
 
 /**
- *
+ * The application initializer.
+ * Starts up the application with Spring.
+ * 
  * @author Gemtastic
  */
 public class ApplicationInitializer implements WebApplicationInitializer{

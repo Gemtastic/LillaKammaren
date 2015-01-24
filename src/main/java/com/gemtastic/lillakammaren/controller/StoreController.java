@@ -5,7 +5,9 @@
  */
 package com.gemtastic.lillakammaren.controller;
 
+import com.gemtastic.lillakammaren.model.Cart;
 import com.gemtastic.lillakammaren.repository.ProductRepository;
+import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,13 +24,16 @@ public class StoreController {
     
     @Autowired
     private ProductRepository repository;
+    private final Cart cart = Cart.getInstance();
     
     @RequestMapping(value="store/{category}", method = RequestMethod.GET)
-    public ModelAndView category(@PathVariable("category")String category){
+    public ModelAndView category(@PathVariable("category")String category) throws IOException{
         ModelAndView model = new ModelAndView();
+        this.repository = ProductRepository.getInstance();
         model.setViewName("store");
         model.addObject("products", repository.getAllProductsByCategory(category));
         model.addObject("categories", repository.getAllCategories());
+        model.addObject("cartsize", cart.getCartSize());
         return model;
     }
     

@@ -68,4 +68,9 @@ public class Product {
     public void setSale(boolean sale){
         this.sale = sale;
     }
+    
+    @Override
+    public String toString(){
+        return name;
+    }
 }
