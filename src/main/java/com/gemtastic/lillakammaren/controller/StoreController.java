@@ -22,8 +22,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class StoreController {
     
-    @Autowired
+
     private ProductRepository repository;
+    
     private final Cart cart = Cart.getInstance();
     
     @RequestMapping(value="store/{category}", method = RequestMethod.GET)

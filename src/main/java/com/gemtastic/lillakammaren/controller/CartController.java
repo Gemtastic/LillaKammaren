@@ -4,7 +4,6 @@ import com.gemtastic.lillakammaren.model.Cart;
 import com.gemtastic.lillakammaren.model.Product;
 import com.gemtastic.lillakammaren.repository.ProductRepository;
 import java.io.IOException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,9 +17,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class CartController {
     
-    @Autowired
+
     private ProductRepository repository;
-    
+
     private final Cart cart = Cart.getInstance();
     
     @RequestMapping(value="/cart", method = RequestMethod.GET)
@@ -35,8 +34,10 @@ public class CartController {
     }
     
     @RequestMapping(value="/cart", method = RequestMethod.POST)
-    public ModelAndView addToCart(@RequestParam("productId") String productId){
+    public ModelAndView addToCart(@RequestParam("productId") String productId) throws IOException{
         ModelAndView model = new ModelAndView();
+        this.repository = ProductRepository.getInstance();
+        System.out.println("Input here: " + productId);
         if (productId == null) {
             System.out.println("Input is null");
         }else{
@@ -44,7 +45,9 @@ public class CartController {
                 int id = Integer.parseInt(productId);
                 System.out.println(id);
                 Product product = repository.getProductByID(id);
+                System.out.println("Selected product here: " + product.getName());
                 cart.addItem(product);
+                System.out.println("Cart here: " + cart.getCartContent());
             } catch (NumberFormatException e) {
                 System.out.println("Oops! Something went wrong:" + e);
             }

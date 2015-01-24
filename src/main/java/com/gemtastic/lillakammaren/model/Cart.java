@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 public class Cart {
     
     private static Cart instance;
-    private int size;
+    private int size = 0;
     
     public static Cart getInstance() {
         if (instance == null) {
@@ -40,6 +40,7 @@ public class Cart {
         }else{
             cart.put(p, 1);
         }
+        size = size + 1;
     }
     
     public void removeProduct(Product p, int amount){
@@ -59,11 +60,13 @@ public class Cart {
     
     @ModelAttribute("cartsize")
     public int getCartSize(){
-        if(cart.isEmpty()){
-            size = 0;
-        }else{
-            size = cart.size();
-        }
+//        if(cart.isEmpty()){
+//            size = 0;
+//        }else{
+//            for(Map.Entry<Product, Integer> entry : cart.entrySet()){
+//                size = size + entry.getValue();
+//            }
+//        }
         return size;
     }
 }

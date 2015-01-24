@@ -24,8 +24,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class IndexController {
     
-    @Autowired
+
     private ProductRepository repository;
+    
     private final Cart cart = Cart.getInstance();
     
     @RequestMapping(value = "/", method = RequestMethod.GET)

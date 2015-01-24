@@ -22,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class ContactController {
     
     private final Cart cart = Cart.getInstance();
-    @Autowired
+
     private ProductRepository repository;
     
     @RequestMapping(value = "contact", method = RequestMethod.GET)
