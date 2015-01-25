@@ -24,7 +24,7 @@ public class ContactController {
     private ProductRepository repository;
     private final MessageRepository messages = MessageRepository.getInstance();
     
-    @RequestMapping(value = "contact", method = RequestMethod.GET)
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
     public ModelAndView contact() throws IOException{
         this.repository = ProductRepository.getInstance();
         ModelAndView model = new ModelAndView();
@@ -35,13 +35,9 @@ public class ContactController {
     }
     
     @ResponseBody
-    @RequestMapping(value="/contact", method = RequestMethod.POST)
+    @RequestMapping(value="/contact/sendmessage", method = RequestMethod.POST)
     public String recieveMessage(@ModelAttribute Message message){
-//        ModelAndView model = new ModelAndView();
-//        model.setViewName("contact_us");
-//        model.addObject("cartsize", cart.getCartSize());
-        String model = "true";
         messages.addMessage(message);
-        return model;
+        return "Message received!";
     }
 }

@@ -5,6 +5,8 @@
         <title th:text="#{site.name}">Company Name</title>
         <link href="css/style.css" th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
         
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js}"></script>
+        <script src="../js/cart.js" th:src="@{/js/cart.js}"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
 
@@ -72,20 +74,21 @@
                                         <th th:text="#{cart.amount}" colspan="2">Antal</th>
                                         <th th:text="#{cart.price}">Pris</th>
                                     </tr>
-                                    <tr th:each="instance : ${cartcontent}">
+                                    <tr th:id="${instance.key.id} + 'ToRemove'" th:each="instance : ${cartcontent}">
                                         <td th:text="${instance.key}">.</td>
                                         <td th:text="${instance.value}">.</td>
-                                        <td class="optionrow"><a href="#" class="removebutton" th:text="#{cart.remove}">.</a></td>
-                                        <td th:text="${instance.key.price}">.</td>
+                                        <td class="optionrow"><div class="removebutton" th:text="#{cart.remove}" th:onclick="'javascript:removeItemById(\'' + ${instance.key.id} + '\', \'' + ${instance.key.id} + 'ToRemove'  + '\');'">.</div></td>
+                                        
+                                        <td th:text="${instance.key.price} + ' SEK'">.</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="4" th:text="#{cart.total} + ${carttotal} + ' ' + #{cart.currency}">Your total amounts to: 0 SEK</td>
+                                        <td id="totalAmount" colspan="4" th:text="#{cart.total} + ${carttotal} + ' ' + #{cart.currency}">Your total amounts to: 0 SEK</td>
                                     </tr>
                                 </table>
                                 <br/>
                                 <br/>
-                                <p th:text="#{form.order}"><strong>To order, please fill in the following:</strong></p>
-                                <form>
+                                <h3 th:text="#{form.order}"><strong>To order, please fill in the following:</strong></h3>
+                                <form id="sendOrder" accept-charset="UTF-8">
                                     <span class="pform" th:text="#{form.name}">Name: </span><span class="required">*</span><br />
                                     <input type="text" name="name" required="required" /><br />
                                     <span class="pform" th:text="#{form.surname}">Surname: </span><span class="required">*</span><br />
@@ -95,7 +98,7 @@
                                     <span class="pform" th:text="#{form.coaddress}">C/O address:</span><br />
                                     <input type="text" name="coadress" /><br />
                                     <span class="pform" th:text="#{form.zip}">Zip code: </span><span class="required">*</span><br />
-                                    <input type="text" name="zipcode" required="required" /><br />
+                                    <input type="text" name="zip" required="required" /><br />
                                     <span class="pform" th:text="#{form.city}">City: </span><span class="required">*</span><br />
                                     <input type="text" name="city" required="required" /><br />
                                     <span class="pform" th:text="#{form.phone}">Phone number:</span><br />
@@ -103,7 +106,7 @@
                                     <span class="pform" th:text="#{form.email}">Email: </span><span class="required">*</span><br />
                                     <input type="text" name="email" required="required" /><br />
                                     <span class="required" th:text="#{form.required}">* Fields are required</span><br />
-                                    <input type="button" value="Skicka order" name="submit" />
+                                    <input type="submit" value="Skicka order" />
                                     <div id="orderConfirmMsg"></div>
                                 </form>
                             </div>
@@ -113,17 +116,17 @@
                         <div class="specials">
                             <div class="specialsChild">
                                 <div class="wrap">
-                                    <a href="#" id="new" class="button" th:text="#{site.new}">New</a>
+                                    <a href="#" th:href="@{/store/} + 'Nyheter'" id="new" class="button" th:text="#{site.new}">New</a>
                                 </div>
                             </div>
                             <div class="specialsChild">
                                 <div class="wrap">
-                                    <a href="#" id="sale" class="button" th:text="#{site.sale}">SALE</a>
+                                    <a href="#" th:href="@{/store/} + 'REA'" id="sale" class="button" th:text="#{site.sale}">SALE</a>
                                 </div>
                             </div>
                             <div class="specialsChild">
                                 <div class="wrap">
-                                    <a href="#" id="spotlight" class="button" th:text="#{site.spotlight}">Spotlight</a>
+                                    <a href="#" th:href="@{/store/} + 'Spotlight'" id="spotlight" class="button" th:text="#{site.spotlight}">Spotlight</a>
                                 </div>
                             </div>
                         </div>

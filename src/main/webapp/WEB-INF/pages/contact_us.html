@@ -5,6 +5,9 @@
         <title th:text="#{site.name}">Company Name</title>
         <link href="css/style.css" th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
         
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js}"></script>
+        <script src="../js/contact.js" th:src="@{/js/contact.js}"></script>
+        
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
 
@@ -66,7 +69,7 @@
 
                         <div class="content">
                             <h2 th:text="#{site.contact}">Contact us!</h2>
-                            <form id="contactMessage" accept-charset="UTF-8" method="POST">
+                            <form id="contactMessage" accept-charset="UTF-8">
                                     <span class="pform" th:text="#{form.name}">Name: </span><span class="required">*</span><br/>
                                     <input type="text" name="name" required="required" /><br/>
                                     <span class="pform" th:text="#{form.email}">Email: </span><span class="required">*</span><br/>
@@ -78,24 +81,24 @@
                                     <span class="required" th:text="#{form.required}">* Fields are required</span><br />
                                     <input type="submit" value="Skicka" />
                                 </form>
-                                <p class="msgSendingSuccess"></p>
+                                <p id="msgSendingSuccess"></p>
                         </div>
 
 
                         <div class="specials">
                             <div class="specialsChild">
                                 <div class="wrap">
-                                    <a href="#" id="new" class="button" th:text="#{site.new}">New</a>
+                                    <a href="#" th:href="@{/store/} + 'Nyheter'" id="new" class="button" th:text="#{site.new}">New</a>
                                 </div>
                             </div>
                             <div class="specialsChild">
                                 <div class="wrap">
-                                    <a href="#" id="sale" class="button" th:text="#{site.sale}">SALE</a>
+                                    <a href="#" th:href="@{/store/} + 'REA'" id="sale" class="button" th:text="#{site.sale}">SALE</a>
                                 </div>
                             </div>
                             <div class="specialsChild">
                                 <div class="wrap">
-                                    <a href="#" id="spotlight" class="button" th:text="#{site.spotlight}">Spotlight</a>
+                                    <a href="#" th:href="@{/store/} + 'Spotlight'" id="spotlight" class="button" th:text="#{site.spotlight}">Spotlight</a>
                                 </div>
                             </div>
                         </div>

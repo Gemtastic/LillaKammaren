@@ -43,8 +43,12 @@ public class Cart {
     }
     
     public void removeProduct(Product p, int amount){
-        if(cart.containsKey(p)){
-            cart.remove(p, amount);
+        if(cart.containsKey(p) && cart.get(p) != 0){
+            cart.put(p, cart.get(p) - amount);
+            size = size - amount;
+            total = total - p.getPrice();
+        }else if(cart.get(p) == 0){
+            cart.remove(p);
         }
     }
     
@@ -65,5 +69,13 @@ public class Cart {
     
     public int getCartTotal(){
         return total;
+    }
+    
+    public boolean containsProduct(Product product){
+        return cart.containsKey(product);
+    }
+    
+    public int getAmount(Product product){
+        return cart.get(product);
     }
 }

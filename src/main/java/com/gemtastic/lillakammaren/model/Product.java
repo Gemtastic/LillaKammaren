@@ -12,6 +12,25 @@ public class Product {
     private int price;
     private int id;
     private boolean sale;
+    private boolean newItem;
+    private boolean spotlight;
+
+    public boolean isNewItem() {
+        return newItem;
+    }
+
+    public void setNewItem(boolean newItem) {
+        this.newItem = newItem;
+    }
+
+    public boolean isSpotlight() {
+        return spotlight;
+    }
+
+    public void setSpotlight(boolean spotlight) {
+        this.spotlight = spotlight;
+    }
+
 
     public String getName() {
         return name;
@@ -61,7 +80,7 @@ public class Product {
         this.id = id;
     }
     
-    public boolean getSale(){
+    public boolean isSale(){
         return sale;
     }
     

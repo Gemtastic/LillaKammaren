@@ -21,9 +21,7 @@ public class ApplicationInitializer implements WebApplicationInitializer{
         AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
 		rootContext.register(ApplicationContext.class);
 		rootContext.setDisplayName("Lilla Kammaren");
-		// Context loader listener
 		sc.addListener(new ContextLoaderListener(rootContext));
-		// Dispatcher servlet
 		ServletRegistration.Dynamic dispatcher = sc.addServlet(
 				"dispatcher", new DispatcherServlet(rootContext));
 		dispatcher.setLoadOnStartup(1);

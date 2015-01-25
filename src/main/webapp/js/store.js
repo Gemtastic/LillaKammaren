@@ -1,7 +1,8 @@
 var cartUrl = "/LillaKammaren/cart";
+var tag;
 
-function getProductId(productId){
-    alert(productId);
+function getProductId(productId, boughtMessage, cartcurrent){
+    tag = boughtMessage;
     $.ajax(cartUrl, {
        "type": "POST",
        "data": {"productId" : productId},
@@ -10,10 +11,9 @@ function getProductId(productId){
 }
 
 function addedToCart(data){
-    if(data.success){
-        console.log("Added to cart!");
-    } else{
-        console.log("Not added to cart.");
-    }
-    alert(data);
+    $("#" + tag).empty();
+    $("#" + tag).append("Lagt i varukorgen!");
+    $("#carttab").empty();
+    $("#carttab").append("Varukorg (" + data + ")");
+    setTimeout(function(){$("#" + tag).empty();},1500);
 }

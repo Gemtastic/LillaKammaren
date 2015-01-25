@@ -87,17 +87,17 @@
                         <div class="specials">
                             <div class="specialsChild">
                                 <div class="wrap">
-                                    <a href="#" id="new" class="button" th:text="#{site.new}">New</a>
+                                    <a href="#" th:href="@{/store/} + 'Nyheter'" id="new" class="button" th:text="#{site.new}">New</a>
                                 </div>
                             </div>
                             <div class="specialsChild">
                                 <div class="wrap">
-                                    <a href="#" id="sale" class="button" th:text="#{site.sale}">SALE</a>
+                                    <a href="#" th:href="@{/store/} + 'REA'" id="sale" class="button" th:text="#{site.sale}">SALE</a>
                                 </div>
                             </div>
                             <div class="specialsChild">
                                 <div class="wrap">
-                                    <a href="#" id="spotlight" class="button" th:text="#{site.spotlight}">Spotlight</a>
+                                    <a href="#" th:href="@{/store/} + 'Spotlight'" id="spotlight" class="button" th:text="#{site.spotlight}">Spotlight</a>
                                 </div>
                             </div>
                         </div>

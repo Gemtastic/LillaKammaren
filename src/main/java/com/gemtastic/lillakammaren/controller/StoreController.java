@@ -32,7 +32,22 @@ public class StoreController {
         ModelAndView model = new ModelAndView();
         this.repository = ProductRepository.getInstance();
         model.setViewName("store");
-        model.addObject("products", repository.getAllProductsByCategory(category));
+        
+        switch (category) {
+            case "Nyheter":
+                model.addObject("products", repository.getSpecialProduct("Nyheter"));
+                break;
+            case "REA":
+                model.addObject("products", repository.getSpecialProduct("REA"));
+                break;
+            case "Spotlight":
+                model.addObject("products", repository.getSpecialProduct("Spotlight"));
+                break;
+            default:
+                model.addObject("products", repository.getAllProductsByCategory(category));
+                break;
+        }
+        
         model.addObject("categories", repository.getAllCategories());
         model.addObject("cartsize", cart.getCartSize());
         return model;

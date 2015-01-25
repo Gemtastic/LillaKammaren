@@ -1,22 +1,18 @@
 $(function(){
-    $("#contactMessage").on('Submit', function(e){
-        alert("You clicked the button");
-        var form = $("#contactMessage");
+    $("#contactMessage").on('submit', function(e){
+        var messageForm = $("#contactMessage");
         e.preventDefault();
         
         $.ajax({
             "type": "POST",
-            "url": "/LillaKammaren/contact",
-            "data": form.serialize(),
+            "url": "/LillaKammaren/contact/sendmessage",
+            "data": messageForm.serialize(),
             "success": messageSent
-//            "success": function(data){
-////                $("#msgSendingSuccess").append(data + "sent!");
-//                alert("You posted a message!" + data);
-//            }
         });
     });
 });
 
 function messageSent(data){
-    alert(data);
+    location.reload();
+    $("#msgSendingSuccess").append("Ditt meddelande har skickats!");
 }
