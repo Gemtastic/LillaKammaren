@@ -49,7 +49,6 @@ public class CartController {
                 System.out.println("Oops! Something went wrong:" + e);
             }
         }
-        
         return model;
     }
 }

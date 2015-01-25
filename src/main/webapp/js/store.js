@@ -15,4 +15,5 @@ function addedToCart(data){
     } else{
         console.log("Not added to cart.");
     }
+    alert(data);
 }

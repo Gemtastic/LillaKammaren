@@ -406,6 +406,7 @@ p.pform {
 .copyrightWrapper table {
 	width: 42em;
 	height: 5em;
+        padding-left: 0.2em;
 }
 
 .horizontal {
@@ -416,4 +417,24 @@ p.pform {
 .vertical {
 	background-image: url(../img/dl_vertical.gif);
 	background-repeat: repeat-y;
+}
+
+
+#cartTable{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#cartTable th{
+    background-color: #40371c;
+    color: #c2b074;
+}
+
+#cartTable td{
+    padding: 0.1em 0.5em;
+}
+
+.optionrow{
+    width: 20%;
+    border-left: 0 none #ffffff;
 }

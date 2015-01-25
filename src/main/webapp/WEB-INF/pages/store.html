@@ -75,15 +75,9 @@
 				<strong th:text="${product.name}">Produktnamn</strong><br/>
                                 <div class="description" th:text="${product.description}">Beskrivning</div>
                                 <em th:text="${product.price}+' kr'">Pris</em><br/>
-                                <a th:href="@{${category}}" class="shopbutton" th:onclick="'javascript:getProductId(\'' + ${product.id} + '\');'" th:text="#{cart.buy}">Buy</a>
-                                <!--<input type="button" class="buybutton" th:onclick="'javascript:getProductId(\'' + ${product.id} + '\');'" th:value="#{cart.buy}" />-->
-                                <script th:inline="javascript">
-                                /*<![CDATA[*/
-                                    var productname = /*[[${product.name}]]*/ 'shopbutton';
-                                /*]]>*/
-                                </script>
-                                
-                                
+                                <!--<a th:href="@{${category}}" class="shopbutton" th:onclick="'javascript:getProductId(\'' + ${product.id} + '\');'" th:text="#{cart.buy}">Buy</a>-->
+                                <input type="button" class="shopbutton" th:onclick="'javascript:getProductId(\'' + ${product.id} + '\');'" th:value="#{cart.buy}" />
+                                <div id="msgConfirmMsg"></div>
                             </div>
                         </div>
 

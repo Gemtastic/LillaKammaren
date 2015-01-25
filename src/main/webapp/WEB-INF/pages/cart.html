@@ -66,22 +66,46 @@
                         <div class="content">
                             <div>
                                 <h2 th:text="#{cart.view}">Store items!</h2>
-                                <table border="1px">
+                                <table id="cartTable">
                                     <tr>
                                         <th th:text="#{cart.product}">Produkt</th>
-                                        <th th:text="#{cart.amount}">Antal</th>
+                                        <th th:text="#{cart.amount}" colspan="2">Antal</th>
                                         <th th:text="#{cart.price}">Pris</th>
-                                        <th></th>
                                     </tr>
                                     <tr th:each="instance : ${cartcontent}">
                                         <td th:text="${instance.key}">.</td>
                                         <td th:text="${instance.value}">.</td>
+                                        <td class="optionrow"><a href="#" class="removebutton" th:text="#{cart.remove}">.</a></td>
                                         <td th:text="${instance.key.price}">.</td>
-                                        <td><a href="#" class="removebutton" th:text="#{cart.remove}">.</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" th:text="#{cart.total} + ${carttotal} + ' ' + #{cart.currency}">Your total amounts to: 0 SEK</td>
                                     </tr>
                                 </table>
-                                <p th:text="#{cart.total} + ${carttotal} + ' ' + #{cart.currency}">Your total amounts to: 0;</p>
-                                
+                                <br/>
+                                <br/>
+                                <p th:text="#{form.order}"><strong>To order, please fill in the following:</strong></p>
+                                <form>
+                                    <span class="pform" th:text="#{form.name}">Name: </span><span class="required">*</span><br />
+                                    <input type="text" name="name" required="required" /><br />
+                                    <span class="pform" th:text="#{form.surname}">Surname: </span><span class="required">*</span><br />
+                                    <input type="text" name="surname" required="required" /><br />
+                                    <span class="pform" th:text="#{form.address}">Address: </span><span class="required">*</span><br />
+                                    <input type="text" name="address" required="required" /><br />
+                                    <span class="pform" th:text="#{form.coaddress}">C/O address:</span><br />
+                                    <input type="text" name="coadress" /><br />
+                                    <span class="pform" th:text="#{form.zip}">Zip code: </span><span class="required">*</span><br />
+                                    <input type="text" name="zipcode" required="required" /><br />
+                                    <span class="pform" th:text="#{form.city}">City: </span><span class="required">*</span><br />
+                                    <input type="text" name="city" required="required" /><br />
+                                    <span class="pform" th:text="#{form.phone}">Phone number:</span><br />
+                                    <input type="text" name="phone" /><br />
+                                    <span class="pform" th:text="#{form.email}">Email: </span><span class="required">*</span><br />
+                                    <input type="text" name="email" required="required" /><br />
+                                    <span class="required" th:text="#{form.required}">* Fields are required</span><br />
+                                    <input type="button" value="Skicka order" name="submit" />
+                                    <div id="orderConfirmMsg"></div>
+                                </form>
                             </div>
                         </div>
 

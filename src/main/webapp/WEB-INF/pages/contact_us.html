@@ -65,20 +65,20 @@
 
 
                         <div class="content">
-                            <h2>Contact us!</h2>
-                                <form>
-                                    <p class="pform">Name: <span class="required">*</span></p>
+                            <h2 th:text="#{site.contact}">Contact us!</h2>
+                            <form id="contactMessage" accept-charset="UTF-8" method="POST">
+                                    <span class="pform" th:text="#{form.name}">Name: </span><span class="required">*</span><br/>
                                     <input type="text" name="name" required="required" /><br/>
-                                    <p class="pform">Email: <span class="required">*</span></p>
+                                    <span class="pform" th:text="#{form.email}">Email: </span><span class="required">*</span><br/>
                                     <input type="email" name="email" required="required" /><br/>
-                                    <p class="pform">Order number:</p>
-                                    <input type="email" name="orderno" /><br/>
-                                    <p class="pform">Message: <span class="required">*</span></p>
+                                    <span class="pform" th:text="#{form.orderno}">Order number:</span><br/>
+                                    <input type="text" name="orderno" /><br/>
+                                    <span class="pform" th:text="#{form.message}">Message: </span><span class="required">*</span><br/>
                                     <textarea name="message" class="textarea" cols="40" rows="4" required="required" /><br/>
-                                    <p class="pform"><span class="required">* Fields are required</span></p>
-                                    <input type="submit" value="Skicka"/>
+                                    <span class="required" th:text="#{form.required}">* Fields are required</span><br />
+                                    <input type="submit" value="Skicka" />
                                 </form>
-                                <p class="success"></p>
+                                <p class="msgSendingSuccess"></p>
                         </div>
 
 
