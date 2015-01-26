@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- *
+ * The contact controller only has three jobs; to display the site, to receive
+ * the messages and to add the messages to the MessageRepository.
+ * 
  * @author Gemtastic
  */
 @Controller
@@ -24,6 +26,12 @@ public class ContactController {
     private ProductRepository repository;
     private final MessageRepository messages = MessageRepository.getInstance();
     
+    /**
+     * Displays the view of the contact us site.
+     * 
+     * @return
+     * @throws IOException 
+     */
     @RequestMapping(value = "/contact", method = RequestMethod.GET)
     public ModelAndView contact() throws IOException{
         this.repository = ProductRepository.getInstance();
@@ -34,6 +42,12 @@ public class ContactController {
         return model;
     }
     
+    /**
+     * Receives and stores messages.
+     * 
+     * @param message
+     * @return 
+     */
     @ResponseBody
     @RequestMapping(value="/contact/sendmessage", method = RequestMethod.POST)
     public String recieveMessage(@ModelAttribute Message message){

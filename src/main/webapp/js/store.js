@@ -1,4 +1,4 @@
-var cartUrl = "/LillaKammaren/cart";
+﻿var cartUrl = "/LillaKammaren/cart";
 var tag;
 
 function getProductId(productId, boughtMessage, cartcurrent){

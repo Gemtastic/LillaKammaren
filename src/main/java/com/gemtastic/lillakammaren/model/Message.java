@@ -1,7 +1,9 @@
 package com.gemtastic.lillakammaren.model;
 
 /**
- *
+ * The message is a simple bean with only getters and setter for the 
+ * message info.
+ * 
  * @author Gemtastic
  */
 public class Message {
@@ -41,7 +43,4 @@ public class Message {
     public void setMessage(String message) {
         this.message = message;
     }
-    
-    
-    
 }

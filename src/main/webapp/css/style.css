@@ -326,8 +326,21 @@ p.pform {
     display: block;
     background-color: #c8a120;
     border-radius: 5px;
-    color: white;
+    color: #EFEFEF;
     text-decoration: none;
+}
+
+.emptybutton {
+    display: block;
+    border-radius: 5px;
+    background-color: #d4cbab;
+    text-align: center;
+}
+
+.emptybutton:hover {
+    background-color: #6a6145;
+    cursor: pointer;
+    color: #d4cbab;
 }
 
 .box {

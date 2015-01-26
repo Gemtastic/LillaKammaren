@@ -1,4 +1,4 @@
-$(function(){
+﻿$(function(){
     $("#contactMessage").on('submit', function(e){
         var messageForm = $("#contactMessage");
         e.preventDefault();

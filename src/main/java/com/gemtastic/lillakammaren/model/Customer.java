@@ -1,7 +1,9 @@
 package com.gemtastic.lillakammaren.model;
 
 /**
- *
+ * The customer is a simple bean with only getters and setters for the customer's
+ * billing info.
+ * 
  * @author Gemtastic
  */
 public class Customer {
@@ -13,8 +15,6 @@ public class Customer {
     private String city;
     private String phone;
     private String email;
-    
-//    private final Map<ArrayList, Integer> order = new HashMap<>();
 
     public String getName() {
         return name;

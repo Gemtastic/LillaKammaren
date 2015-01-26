@@ -6,13 +6,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * This order repository does not provide any way to view the orders on the site.
+ * This order repository does not provide any way to view the orders on the 
+ * site, yet. But it does receive and store them.
+ * 
  * @author Gemtastic
  */
 public class OrderRepository {
     public static OrderRepository instance;
-    private Map<Long, Order> orders;
-//    private Map<Customer, Cart> order = new HashMap<>();
+    private Map<Float, Order> orders;
+    private float amountOfOrders = 0;
     
     public static OrderRepository getInstance() throws IOException{
         if(instance == null){
@@ -29,13 +31,18 @@ public class OrderRepository {
         orders = new HashMap<>();
     }
     
-    public void addOrder(Order order, long orderno){
+    public void addOrder(Order order, float orderno){
         orders.put(orderno, order);
     }
     
-    public Order getOrder(long orderno){
+    public Order getOrder(float orderno){
         Order order = orders.get(orderno);
         return order;
+    }
+    
+    public float ordernoGenerator(){
+        float orderno = amountOfOrders + 1;
+        return orderno;
     }
     
 }

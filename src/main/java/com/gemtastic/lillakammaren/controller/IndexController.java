@@ -8,17 +8,16 @@ package com.gemtastic.lillakammaren.controller;
 import com.gemtastic.lillakammaren.model.Cart;
 import com.gemtastic.lillakammaren.repository.ProductRepository;
 import java.io.IOException;
-import java.util.List;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- *
+ * The Index controller is managing the index site, or 'home' as it also is
+ * referred to. It only displays the view and gives thymeleaf the objects to
+ * render.
+ * 
  * @author Gemtastic
  */
 @Controller

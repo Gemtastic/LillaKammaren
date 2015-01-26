@@ -82,7 +82,8 @@
                                         <td th:text="${instance.key.price} + ' SEK'">.</td>
                                     </tr>
                                     <tr>
-                                        <td id="totalAmount" colspan="4" th:text="#{cart.total} + ${carttotal} + ' ' + #{cart.currency}">Your total amounts to: 0 SEK</td>
+                                        <td id="totalAmount" colspan="2" th:text="#{cart.total} + ${carttotal} + ' ' + #{cart.currency}">Your total amounts to: 0 SEK</td>
+                                        <td colspan="2"><div class="emptybutton" th:text="#{cart.empty}" th:onclick="'javascript:emptyCart(\'' + 'empty' + '\');'">Empty cart</div></td>
                                     </tr>
                                 </table>
                                 <br/>

@@ -14,7 +14,15 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 /**
- *
+ * The Product repository is reading a JSON file to retrieve this store's
+ * current wares. It is completely agnostic to what wares there are, what 
+ * categories they are and how many. As long as each ware follows the bean
+ * this class will be happy.
+ * 
+ * Its utility methods are retrieving the current repository, specifically 
+ * all the products, all the categories or the special wares of a specific 
+ * kind.
+ * 
  * @author Gemtastic
  */
 @Repository
@@ -37,6 +45,11 @@ public class ProductRepository {
     private List<Product> products;
     private final List<String> categories;
 
+    /**
+     * The product repository loads the JSON and reads it upon creation.
+     * 
+     * @throws IOException 
+     */
     private ProductRepository() throws IOException {
         this.products = new ArrayList<>();
         this.categories = new ArrayList<>();
@@ -59,7 +72,6 @@ public class ProductRepository {
         }
     }
 
-    @ModelAttribute("products")
     public List<Product> getAllProducts() {
         return products;
     }
@@ -73,12 +85,17 @@ public class ProductRepository {
         throw new IllegalArgumentException("Specified Product ID does not exist.");
     }
 
-    @ModelAttribute("categories")
     public List<String> getAllCategories() {
         return categories;
     }
 
-    @ModelAttribute("categoryitems")
+    /**
+     * This method sorts out the items of the specified category and returns 
+     * them as a list.
+     * 
+     * @param category
+     * @return 
+     */
     public List<Product> getAllProductsByCategory(String category) {
         List<Product> productsByCategory = new ArrayList();
         for (Product p : products) {
@@ -89,6 +106,14 @@ public class ProductRepository {
         return productsByCategory;
     }
 
+    /**
+     * This method checks against a string if it is a special product and then 
+     * sorts out the specified special product from the repository and returns
+     * them.
+     * 
+     * @param special
+     * @return 
+     */
     public List<Product> getSpecialProduct(String special) {
         List<Product> specialProducts = new ArrayList<>();
         switch (special) {
@@ -112,6 +137,10 @@ public class ProductRepository {
                         specialProducts.add(p);
                     }
                 }
+                break;
+            default:
+                System.out.println("This was not a special product.");
+                break;
         }
         return specialProducts;
     }

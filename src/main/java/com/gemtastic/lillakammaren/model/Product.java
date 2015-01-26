@@ -1,7 +1,9 @@
 package com.gemtastic.lillakammaren.model;
 
 /**
- *
+ * The product is the item in the store. It has all the information about the 
+ * item, but it contains nothing more than getters and setters.
+ * 
  * @author Gemtastic
  */
 public class Product {

@@ -7,7 +7,8 @@ import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 /**
- *
+ * Thymeleaf template configuration.
+ * 
  * @author Gemtastic
  */
 @Configuration
@@ -20,7 +21,7 @@ public class ThymeleafConfig {
 		resolver.setSuffix(".html");
 		resolver.setTemplateMode("HTML5");
 		resolver.setOrder(1);
-                resolver.setCacheable(false);
+                resolver.setCacheable(true);
                 resolver.setCharacterEncoding("UTF-8");
                 
 		return resolver;

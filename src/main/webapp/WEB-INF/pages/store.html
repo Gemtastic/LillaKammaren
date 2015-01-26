@@ -76,7 +76,6 @@
                                 <div class="description" th:text="${product.description}">Beskrivning</div>
                                 <em th:text="${product.price}+' kr'">Pris</em><br/>
                                 <div th:href="@{${category}}" class="shopbutton" th:onclick="'javascript:getProductId(\'' + ${product.id} + '\', \'' + 'boughtConfirmMsg' + ${product.id} + '\');'">Buy</div>
-                                <!--<input type="button" class="shopbutton" th:onclick="'javascript:getProductId(\'' + ${product.id} + '\', \'' + 'boughtConfirmMsg' + ${product.id} + '\');'" th:value="#{cart.buy}" />-->
                                 <div class="confirmMsg" th:id="'boughtConfirmMsg' + ${product.id}"></div>
                             </div>
                         </div>

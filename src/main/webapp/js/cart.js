@@ -15,7 +15,9 @@ $(function(){
 });
 
 function orderSent(data){
-    alert(data);
+    console.log(data);
+    location.reload();
+    $("#orderConfirmMsg").append("Din order har skickats!");
 }
 
 function removeItemById(itemId, toRemove){
@@ -31,8 +33,19 @@ function removeItemById(itemId, toRemove){
 function itemRemoved(data){
     if(data === "0"){
         alert("Alla produkter av den här typen är borttagna!");
-	$("#" + removeRow).remove();
-    }else{
-        location.reload();
     }
+    location.reload();
+}
+
+function emptyCart(empty){
+    $.ajax({
+       "type": "POST",
+       "url": "/LillaKammaren/cart/empty",
+       "data": {"empty" : empty},
+       "success": emptiedCart
+    });
+}
+
+function emptiedCart(){
+    location.reload();
 }
