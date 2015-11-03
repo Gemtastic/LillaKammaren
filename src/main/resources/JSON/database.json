@@ -1,0 +1,90 @@
+[
+    {
+        "name": "ABC tavla",
+        "price": 500,
+        "description": "Alfabetstavla i tyg från Oscar & Ellen.",
+        "img": "/img/products/ABC_tavla.jpg",
+        "category": "Leksaker",
+        "id": 1,
+        "sale": false,
+        "newItem": false,
+        "spotlight": false
+    },
+    {
+        "name": "Världstavla",
+        "price": 800,
+        "description": "Världstavla i tyg från Oscar & Ellen.",
+        "img": "/img/products/varldstavla.jpg",
+        "category": "Leksaker",
+        "id": 2,
+        "sale": false,
+        "newItem": false,
+        "spotlight": false
+    },
+    {
+        "name": "Cover Me Amningscape",
+        "price": 200,
+        "description": "En amningscape för att få amningen lite mer privat",
+        "img": "/img/products/CoverMe_Amningscape_svart-rod.jpg",
+        "category": "Baby",
+        "id": 3,
+        "sale": false,
+        "newItem": false,
+        "spotlight": false
+    },
+    {
+        "name": "Linnea böcker",
+        "price": 100,
+        "description": "Klassikern Linnea i målarens trädgård eller Linneas årsbok",
+        "img": "/img/products/linnea.jpg",
+        "category": "Böcker",
+        "id": 4,
+        "sale": false,
+        "newItem": false,
+        "spotlight": false
+    },
+    {
+        "name": "Piggtittare",
+        "price": 500,
+        "description": "En vacker piggtittare i vitt.",
+        "img": "/img/products/piggtittare.jpg",
+        "category": "Övrigt",
+        "id": 5,
+        "sale": true,
+        "newItem": false,
+        "spotlight": false
+    },
+    {
+        "name": "Sushi set",
+        "price": 150,
+        "description": "Sött sushi-set i textil.",
+        "img": "/img/products/textil_sushi.jpg",
+        "category": "Leksaker",
+        "id": 6,
+        "sale": false,
+        "newItem": true,
+        "spotlight": false
+    },
+    {
+        "name": "Natursutten",
+        "price": 50,
+        "description": "Napp i naturgummi, garanterat giftfri.",
+        "img": "/img/products/natursutten.jpg",
+        "category": "Baby",
+        "id": 7,
+        "sale": false,
+        "newItem": true,
+        "spotlight": false
+    },
+    {
+        "name": "Nappflaska glas",
+        "price": 200,
+        "description": "Nappflaska i härdat glas med napp av giftfritt naturgummi. Tål diskmaskin.",
+        "img": "/img/products/nappflaska_glas.jpg",
+        "category": "Baby",
+        "id": 8,
+        "sale": false,
+        "newItem": false,
+        "spotlight": true
+    }
+]

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="sv" xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="#{site.name}">Company Name</title>
+        <link href="css/style.css" th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js}"></script>
+        <script src="../js/cart.js" th:src="@{/js/cart.js}"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div class="topWrapper">
+                <div class="topContainer">
+                    <div class="menuContainer">
+                        <div class="navMenu">
+                            <ul>
+                                <li>
+                                    <a href="index.html" th:href="@{/}" th:text="#{site.home}" class="home">Home</a>
+                                </li>
+                                <li>
+                                    <a href="contact_us.html" th:href="@{/contact}" th:text="#{site.contact}" class="contact">Contact</a>
+                                </li>
+                                <li>
+                                    <a href="#" th:href="@{/cart}" class="currentPage" th:text="#{site.cart} + ' ('+ ${cartsize} +')'">Cart</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="header">
+                        <div class="logo"><img src="img/logo.png" th:src="@{/img/logo.png}" id="logotype" alt="Lilla Kammaren" /></div>
+                        <div class="social">
+                            <a href="http://www.facebook.com" target="_blank"><img class="socialBtn" src="img/facebook_btn.png" th:src="@{/img/facebook_btn.png}" alt="Vår Facebook sida" /></a>
+                            <a href="http://www.twitter.com" target="_blank"><img class="socialBtn" src="img/twitter_btn.png" th:src="@{/img/twitter_btn.png}" alt="Vår Twitter sida" /></a>
+                            <a href="http://www.pinterest.com" target="_blank"><img class="socialBtn" src="img/pinterest_btn.png" th:src="@{/img/pinterest_btn.png}" alt="Lilla Kammaren på pinterest" /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bowContainer">
+                <div class="lineholder">
+                    <div class="line"></div>
+                    <div class="line"></div>
+
+                    <div class="bowPositioner">
+                        <div class="bowholder">
+                            <img src="img/bow.png" th:src="@{/img/bow.png}" id="bow" alt="Rosett" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contentWrapper">
+                <div class="bodyWrapper">
+                    <div class="bodyContainer">
+                        <div class="productMenu">
+                            <p class="productMenuContent" th:text="#{site.products}">Products</p>
+                            <ul>
+                                <li th:each="category : ${categories}" th:id="${category}"><a href="store.html" th:href="@{store/} + ${category}" th:text="${category}"></a></li>
+                            </ul>
+                        </div>
+
+
+                        <div class="content">
+                            <div>
+                                <h2 th:text="#{cart.view}">Store items!</h2>
+                                <table id="cartTable">
+                                    <tr>
+                                        <th th:text="#{cart.product}">Produkt</th>
+                                        <th th:text="#{cart.amount}" colspan="2">Antal</th>
+                                        <th th:text="#{cart.price}">Pris</th>
+                                    </tr>
+                                    <tr th:id="${instance.key.id} + 'ToRemove'" th:each="instance : ${cartcontent}">
+                                        <td th:text="${instance.key}">.</td>
+                                        <td th:text="${instance.value}">.</td>
+                                        <td class="optionrow"><div class="removebutton" th:text="#{cart.remove}" th:onclick="'javascript:removeItemById(\'' + ${instance.key.id} + '\', \'' + ${instance.key.id} + 'ToRemove'  + '\');'">.</div></td>
+                                        
+                                        <td th:text="${instance.key.price} + ' SEK'">.</td>
+                                    </tr>
+                                    <tr>
+                                        <td id="totalAmount" colspan="2" th:text="#{cart.total} + ${carttotal} + ' ' + #{cart.currency}">Your total amounts to: 0 SEK</td>
+                                        <td colspan="2"><div class="emptybutton" th:text="#{cart.empty}" th:onclick="'javascript:emptyCart(\'' + 'empty' + '\');'">Empty cart</div></td>
+                                    </tr>
+                                </table>
+                                <br/>
+                                <br/>
+                                <h3 th:text="#{form.order}"><strong>To order, please fill in the following:</strong></h3>
+                                <form id="sendOrder" accept-charset="UTF-8">
+                                    <span class="pform" th:text="#{form.name}">Name: </span><span class="required">*</span><br />
+                                    <input type="text" name="name" required="required" /><br />
+                                    <span class="pform" th:text="#{form.surname}">Surname: </span><span class="required">*</span><br />
+                                    <input type="text" name="surname" required="required" /><br />
+                                    <span class="pform" th:text="#{form.address}">Address: </span><span class="required">*</span><br />
+                                    <input type="text" name="address" required="required" /><br />
+                                    <span class="pform" th:text="#{form.coaddress}">C/O address:</span><br />
+                                    <input type="text" name="coadress" /><br />
+                                    <span class="pform" th:text="#{form.zip}">Zip code: </span><span class="required">*</span><br />
+                                    <input type="text" name="zip" required="required" /><br />
+                                    <span class="pform" th:text="#{form.city}">City: </span><span class="required">*</span><br />
+                                    <input type="text" name="city" required="required" /><br />
+                                    <span class="pform" th:text="#{form.phone}">Phone number:</span><br />
+                                    <input type="text" name="phone" /><br />
+                                    <span class="pform" th:text="#{form.email}">Email: </span><span class="required">*</span><br />
+                                    <input type="text" name="email" required="required" /><br />
+                                    <span class="required" th:text="#{form.required}">* Fields are required</span><br />
+                                    <input type="submit" value="Skicka order" />
+                                    <div id="orderConfirmMsg"></div>
+                                </form>
+                            </div>
+                        </div>
+
+
+                        <div class="specials">
+                            <div class="specialsChild">
+                                <div class="wrap">
+                                    <a href="#" th:href="@{/store/} + 'Nyheter'" id="new" class="button" th:text="#{site.new}">New</a>
+                                </div>
+                            </div>
+                            <div class="specialsChild">
+                                <div class="wrap">
+                                    <a href="#" th:href="@{/store/} + 'REA'" id="sale" class="button" th:text="#{site.sale}">SALE</a>
+                                </div>
+                            </div>
+                            <div class="specialsChild">
+                                <div class="wrap">
+                                    <a href="#" th:href="@{/store/} + 'Spotlight'" id="spotlight" class="button" th:text="#{site.spotlight}">Spotlight</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="copyrightWrapper">
+                        <table>
+                            <tr>
+                                <td colspan="3" class="horizontal"></td>
+                            </tr>
+                            <tr>
+                                <td class="vertical"></td>
+                                <td class="copyText" th:text="#{site.copyright}">&copy; Company Name 201X</td>
+                                <td class="vertical"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="horizontal"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

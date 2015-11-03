@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="sv" xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="#{site.name}">Company Name</title>
+        <link href="css/style.css" th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js}"></script>
+        <script src="../js/store.js" th:src="@{/js/store.js}"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div class="topWrapper">
+                <div class="topContainer">
+                    <div class="menuContainer">
+                        <div class="navMenu">
+                            <ul>
+                                <li>
+                                    <a href="index.html" th:href="@{/}" th:text="#{site.home}" class="currentPage">Home</a>
+                                </li>
+                                <li>
+                                    <a href="contact_us.html" th:href="@{/contact}" th:text="#{site.contact}" class="contact">Contact</a>
+                                </li>
+                                <li>
+                                    <a href="#" th:href="@{/cart}" id="carttab" class="cart" th:text="#{site.cart} + ' ('+ ${cartsize} +')'">Cart</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="header">
+                        <div class="logo"><img src="img/logo.png" th:src="@{/img/logo.png}" id="logotype" alt="Lilla Kammaren" /></div>
+                        <div class="social">
+                            <a href="http://www.facebook.com" target="_blank"><img class="socialBtn" src="img/facebook_btn.png" th:src="@{/img/facebook_btn.png}" alt="Vår Facebook sida" /></a>
+                            <a href="http://www.twitter.com" target="_blank"><img class="socialBtn" src="img/twitter_btn.png" th:src="@{/img/twitter_btn.png}" alt="Vår Twitter sida" /></a>
+                            <a href="http://www.pinterest.com" target="_blank"><img class="socialBtn" src="img/pinterest_btn.png" th:src="@{/img/pinterest_btn.png}" alt="Lilla Kammaren på pinterest" /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bowContainer">
+                <div class="lineholder">
+                    <div class="line"></div>
+                    <div class="line"></div>
+
+                    <div class="bowPositioner">
+                        <div class="bowholder">
+                            <img src="img/bow.png" th:src="@{/img/bow.png}" id="bow" alt="Rosett" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contentWrapper">
+                <div class="bodyWrapper">
+                    <div class="bodyContainer">
+                        <div class="productMenu">
+                            <p class="productMenuContent" th:text="#{site.products}">Products</p>
+                            <ul>
+                                <li th:each="category : ${categories}" th:id="${category}"><a href="store.html" th:href="@{${category}}" th:text="${category}"></a></li>
+                            </ul>
+                        </div>
+
+
+                        <div class="content">
+                            <div>
+                                <h2 th:text="${category}">Store items!</h2>
+                            </div>
+                            
+                            <div class="productItems" th:each="product : ${products}">
+                                <a href="#" th:id="${product.id}"><img src="" th:src="@{${product.img}}" class="box"/></a><br/>
+				<strong th:text="${product.name}">Produktnamn</strong><br/>
+                                <div class="description" th:text="${product.description}">Beskrivning</div>
+                                <em th:text="${product.price}+' kr'">Pris</em><br/>
+                                <div th:href="@{${category}}" class="shopbutton" th:onclick="'javascript:getProductId(\'' + ${product.id} + '\', \'' + 'boughtConfirmMsg' + ${product.id} + '\');'">Buy</div>
+                                <div class="confirmMsg" th:id="'boughtConfirmMsg' + ${product.id}"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="specials">
+                            <div class="specialsChild">
+                                <div class="wrap">
+                                    <a href="#" th:href="@{/store/} + 'Nyheter'" id="new" class="button" th:text="#{site.new}">New</a>
+                                </div>
+                            </div>
+                            <div class="specialsChild">
+                                <div class="wrap">
+                                    <a href="#" th:href="@{/store/} + 'REA'" id="sale" class="button" th:text="#{site.sale}">SALE</a>
+                                </div>
+                            </div>
+                            <div class="specialsChild">
+                                <div class="wrap">
+                                    <a href="#" th:href="@{/store/} + 'Spotlight'" id="spotlight" class="button" th:text="#{site.spotlight}">Spotlight</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="copyrightWrapper">
+                        <table>
+                            <tr>
+                                <td colspan="3" class="horizontal"></td>
+                            </tr>
+                            <tr>
+                                <td class="vertical"></td>
+                                <td class="copyText" th:text="#{site.copyright}">&copy; Company Name 201X</td>
+                                <td class="vertical"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="horizontal"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
